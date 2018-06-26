@@ -5,7 +5,7 @@ It demonstrates how to receive...
 filenames & text  
   via [SDL_DropEvent](https://wiki.libsdl.org/SDL_DropEvent)
 
-![Screenshot2](screenshot2.gif)
+![Screenshot2](screenshot2.gif)  
 For the last example I use curl and jansson.  
 
 Useful links:  
