@@ -1,13 +1,14 @@
 //BEGIN HEAD
 //BEGIN DESCRIPTION
 
-/* Drag and Drop
+/* Drag and Drop 2
  *
  */
 
 /* DEFINED PROGRESS GOALS
  * 
- * catch url or file via D&D
+ * catch url via D&D
+ * and tokenize it
  * 
  */
 //END   DESCRIPTION
@@ -15,6 +16,7 @@
 //BEGIN INCLUDES
 //system headers
 #include <math.h>
+#include <string.h>
 //local headers
 #include "helper.h"
 //END   INCLUDES
@@ -74,6 +76,8 @@ SDL_Event event;
 int running = 1;
 //END   INIT
 char* dropped_filedir;
+
+#include <stdio.h>
 //BEGIN MAIN LOOP
 while(running){
 
@@ -91,7 +95,18 @@ while(running){
 			case SDL_DROPTEXT:
 				dropped_filedir = event.drop.file;
 				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Text dropped on window", dropped_filedir, Window);
+				char *str = strdup(dropped_filedir);
+				SDL_Log("%s\n", dropped_filedir);
+				char *token = strtok(str, "/");
+				char *last;
+				while (token != NULL){
+					SDL_Log("%s\n", token);
+					last=token;
+					token = strtok(NULL, "/");
+				}
+				
 				SDL_free(dropped_filedir);
+				SDL_Log("%s\n", last);
 				break;
 
 			case SDL_MOUSEMOTION:
