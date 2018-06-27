@@ -93,19 +93,14 @@ while(running){
 				SDL_free(dropped_filedir);
 				break;
 			case SDL_DROPTEXT:
-				dropped_filedir = event.drop.file;
-				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Text dropped on window", dropped_filedir, Window);
-				char *str = strdup(dropped_filedir);
-				SDL_Log("%s\n", dropped_filedir);
-				char *token = strtok(str, "/");
+				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Text dropped on window", event.drop.file, Window);
+				char *token = strtok(event.drop.file, "/");
 				char *last;
 				while (token != NULL){
 					SDL_Log("%s\n", token);
 					last=token;
 					token = strtok(NULL, "/");
 				}
-				
-				SDL_free(dropped_filedir);
 				SDL_Log("%s\n", last);
 				break;
 
