@@ -5,6 +5,10 @@ It demonstrates how to receive...
 filenames & text  
   via [SDL_DropEvent](https://wiki.libsdl.org/SDL_DropEvent)
 
+  !!! ATTENTION SHADERTOY API CURRENTLY NOT WORKING  
+  check this link to see if the API is working:  
+  https://www.shadertoy.com/api/v1/shaders/MslGWN?key=fdrtwr  
+
 ![Screenshot2](screenshot2.gif)  
 For the last example I use curl and jansson.  
 see:  
