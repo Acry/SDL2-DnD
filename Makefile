@@ -8,7 +8,7 @@ LDFLAGS3 = $(LDFLAGS1) $(LDFLAGS2)
 .SUFFIXES: .c .o
 
 srcdir	 =src/
-TARGETS	 = drag_drop tokenize shader_drop
+TARGETS	 = drag_drop tokenize shader_drop shader_drop2
 
 .PHONY: all
 all: $(TARGETS)
@@ -23,6 +23,10 @@ tokenize: $(srcdir)helper.c $(srcdir)main2.c
 
 # drop shadertoy shader and download it, plus texture if applicable
 shader_drop: $(srcdir)helper.c $(srcdir)main3.c
+	$(CC) $(CFLAGS) -o $@ $+ $(LDFLAGS3)
+	
+# API-less drop shadertoy shader and download it, plus texture if applicable
+shader_drop2: $(srcdir)helper.c $(srcdir)main4.c
 	$(CC) $(CFLAGS) -o $@ $+ $(LDFLAGS3)
 
 .PHONY: clean
